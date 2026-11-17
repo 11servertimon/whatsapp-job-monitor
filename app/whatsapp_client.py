@@ -27,7 +27,7 @@ log = logging.getLogger("whatsapp.client")
 
 
 class WhatsAppWebClient:
-    SIDEBAR_SEARCH_XPATH = "//*[@id='side']//div[@contenteditable='true'][@role='textbox']"
+    SIDEBAR_SEARCH_XPATH = "//div[@contenteditable='true'][@data-tab='3']"
     CHAT_RESULT_XPATH_TEMPLATE = (
         "//*[@id='pane-side']//span[@title={chat}]"
         "/ancestor::*[@role='gridcell' or @role='row'][1]"
@@ -76,6 +76,7 @@ class WhatsAppWebClient:
 
         self.driver = webdriver.Chrome(options=options)
         self.wait = WebDriverWait(self.driver, self.config.wait_timeout_seconds)
+        options.add_argument("--remote-debugging-port=9222")
 
     def _ensure_live_session(self) -> None:
         if self.driver is None or self.wait is None:
