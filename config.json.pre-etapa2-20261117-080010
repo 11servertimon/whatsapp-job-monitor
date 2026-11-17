@@ -1,0 +1,27 @@
+﻿{
+    "browser":  {
+                    "profile_dir":  ".session/chrome",
+                    "headless":  false,
+                    "wait_timeout_seconds":  30,
+                    "login_timeout_seconds":  240
+                },
+    "monitor":  {
+                    "archive_group":  "BEt365",
+                    "source_groups":  [
+                                          "GRUPO_ORIGEM_AQUI"
+                                      ],
+                    "keywords":  [
+                                     "estágio",
+                                     "estagiário",
+                                     "estagiária",
+                                     "intern",
+                                     "internship"
+                                 ],
+                    "poll_interval_seconds":  5,
+                    "lookback_messages":  30,
+                    "skip_own_messages":  true,
+                    "dry_run":  true,
+                    "state_file":  "storage/seen_messages.json",
+                    "require_link":  true
+                }
+}
